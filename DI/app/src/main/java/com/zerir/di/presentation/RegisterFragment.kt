@@ -1,4 +1,4 @@
-package com.zerir.di.presentaion
+package com.zerir.di.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.zerir.di.data.AuthApi
 import com.zerir.di.data.AuthRepository
 import com.zerir.di.data.UserPreference
 
-class LoginFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
     private lateinit var viewModel: AuthViewModel
 
@@ -15,11 +15,11 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val api = AuthApi()
-        val preferences = UserPreference()
+        val preferences = UserPreference(requireActivity())
         val authRepository = AuthRepository(api, preferences)
         viewModel = AuthViewModel(authRepository)
 
-        viewModel.login()
+        viewModel.register()
         viewModel.saveData()
     }
 
