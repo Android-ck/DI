@@ -1,4 +1,4 @@
-package com.zerir.di.presentaion
+package com.zerir.di.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,6 +19,10 @@ class AuthViewModel(
 
     fun saveData() = viewModelScope.launch {
         repository.saveData()
+    }
+
+    fun test() = viewModelScope.launch {
+        repository.test()
     }
 
 }

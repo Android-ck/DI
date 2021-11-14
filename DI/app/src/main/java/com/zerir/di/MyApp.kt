@@ -11,7 +11,7 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        _appContainer = AppContainer()
+        _appContainer = AppContainer(this)
 
     }
 

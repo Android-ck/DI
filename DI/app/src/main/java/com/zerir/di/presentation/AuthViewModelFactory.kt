@@ -1,4 +1,4 @@
-package com.zerir.di.presentaion
+package com.zerir.di.presentation
 
 import com.zerir.di.data.AuthRepository
 

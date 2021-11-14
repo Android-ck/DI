@@ -1,4 +1,4 @@
-package com.zerir.di.presentaion
+package com.zerir.di.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,11 +10,17 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var _appContainer: AppContainer
     val appContainer get() = _appContainer
 
+    private var viewModel: AuthViewModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _appContainer = (application as MyApp).appContainer
         appContainer.setUpAuthContainer()
+
+        viewModel = _appContainer.authContainer?.authViewModelFactory?.createViewModel()
+
+        viewModel?.test()
     }
 
     override fun onDestroy() {

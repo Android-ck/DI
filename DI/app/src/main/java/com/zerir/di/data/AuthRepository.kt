@@ -11,4 +11,9 @@ class AuthRepository(
 
     suspend fun saveData() = userPreference.saveData()
 
+    suspend fun test() {
+        authApi.test()
+        userPreference.test()
+    }
+
 }
