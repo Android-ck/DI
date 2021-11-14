@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.zerir.di.data.AuthRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AuthViewModel(
+class AuthViewModel @Inject constructor(
     private val repository: AuthRepository,
 ) : ViewModel() {
 
@@ -19,6 +20,10 @@ class AuthViewModel(
 
     fun saveData() = viewModelScope.launch {
         repository.saveData()
+    }
+
+    fun test() = viewModelScope.launch {
+        repository.test()
     }
 
 }

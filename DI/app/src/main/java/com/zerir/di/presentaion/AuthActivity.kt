@@ -2,24 +2,18 @@ package com.zerir.di.presentaion
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.zerir.di.MyApp
-import com.zerir.di.di.AppContainer
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class AuthActivity : AppCompatActivity() {
 
-    private lateinit var _appContainer: AppContainer
-    val appContainer get() = _appContainer
+    @Inject lateinit var viewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
-        _appContainer = (application as MyApp).appContainer
-        appContainer.setUpAuthContainer()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _appContainer.clearAuthContainer()
+        viewModel.test()
     }
 
 }

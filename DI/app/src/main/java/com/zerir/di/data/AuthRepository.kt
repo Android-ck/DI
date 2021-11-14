@@ -1,7 +1,9 @@
 package com.zerir.di.data
 
-class AuthRepository(
-    private val authApi: AuthApi,
+import javax.inject.Inject
+
+class AuthRepository @Inject constructor(
+    private val authApi: AuthApiReference,
     private val userPreference: UserPreference,
 ) {
 
@@ -10,5 +12,10 @@ class AuthRepository(
     suspend fun register() = authApi.register()
 
     suspend fun saveData() = userPreference.saveData()
+
+    suspend fun test() {
+        authApi.test()
+        userPreference.test()
+    }
 
 }
