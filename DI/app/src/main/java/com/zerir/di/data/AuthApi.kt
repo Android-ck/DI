@@ -4,22 +4,21 @@ import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class AuthApi : AuthApiReference{
+class AuthApi : AuthApiReference {
 
     override suspend fun login() {
         withContext(Dispatchers.IO) {
-            //Do login stuff
+            Log.d("PRINTING", "AuthAPi Login")
         }
     }
 
     override suspend fun register() {
         withContext(Dispatchers.IO) {
-            //Do register stuff
+            Log.d("PRINTING", "AuthAPi Register")
         }
     }
 
     override suspend fun test() {
-        Log.d("Test", "Auth Api")
+        Log.d("PRINTING", "Test Auth Api")
     }
-
 }
