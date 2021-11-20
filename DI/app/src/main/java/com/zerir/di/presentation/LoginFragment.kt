@@ -2,20 +2,27 @@ package com.zerir.di.presentation
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.zerir.di.R
 
-class LoginFragment : Fragment() {
+class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    private var viewModel: AuthViewModel? = null
+    private val viewModel: AuthViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = (requireActivity() as AuthActivity)
-            .appContainer.authContainer?.authViewModelFactory?.createViewModel()
+        view.findViewById<Button>(R.id.login_bt).setOnClickListener {
+            viewModel.login()
+            viewModel.saveData()
+        }
 
-        viewModel?.login()
-        viewModel?.saveData()
+        view.findViewById<Button>(R.id.registerScreen_bt).setOnClickListener {
+            findNavController().navigate(R.id.registerFragment)
+        }
     }
 
 }

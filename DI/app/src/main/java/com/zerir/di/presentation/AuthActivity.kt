@@ -1,31 +1,29 @@
 package com.zerir.di.presentation
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.zerir.di.MyApp
+import com.zerir.di.R
 import com.zerir.di.di.AppContainer
 
 class AuthActivity : AppCompatActivity() {
 
-    private lateinit var _appContainer: AppContainer
+    private val _appContainer: AppContainer by lazy {
+        (application as MyApp).appContainer
+    }
     val appContainer get() = _appContainer
 
-    private var viewModel: AuthViewModel? = null
+    private val viewModel: AuthViewModel by viewModels {
+        val repo = appContainer.authRepository
+        AuthViewModel.Factory(repo)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_auth)
 
-        _appContainer = (application as MyApp).appContainer
-        appContainer.setUpAuthContainer()
-
-        viewModel = _appContainer.authContainer?.authViewModelFactory?.createViewModel()
-
-        viewModel?.test()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _appContainer.clearAuthContainer()
+        viewModel.test()
     }
 
 }
