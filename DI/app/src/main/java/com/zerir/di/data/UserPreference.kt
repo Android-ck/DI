@@ -9,14 +9,16 @@ import javax.inject.Inject
 
 class UserPreference @Inject constructor(@ApplicationContext context: Context) {
 
+    private val context = context.applicationContext
+
     suspend fun saveData(){
         withContext(Dispatchers.IO) {
-            //Do saving stuff
+            Log.d("PRINTING", "Saving Data: ${context.packageName}")
         }
     }
 
     fun test() {
-        Log.d("Test", "User Preference")
+        Log.d("PRINTING", "Test User Preference")
     }
 
 }

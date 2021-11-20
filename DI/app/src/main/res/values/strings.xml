@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DI</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_account">Already have Account</string>
 </resources>
