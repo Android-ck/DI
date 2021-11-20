@@ -1,6 +1,6 @@
 package com.zerir.di.di
 
-import com.zerir.di.presentaion.AuthActivity
+import com.zerir.di.presentation.AuthActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

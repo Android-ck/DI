@@ -1,4 +1,4 @@
-package com.zerir.di.presentaion
+package com.zerir.di.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
