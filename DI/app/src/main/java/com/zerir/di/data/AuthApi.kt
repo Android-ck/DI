@@ -3,9 +3,8 @@ package com.zerir.di.data
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
-class AuthApi @Inject constructor() : AuthApiReference {
+class AuthApi : AuthApiReference {
 
     override suspend fun login() {
         withContext(Dispatchers.IO) {

@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.zerir.di.R
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private val viewModel: AuthViewModel by activityViewModels()

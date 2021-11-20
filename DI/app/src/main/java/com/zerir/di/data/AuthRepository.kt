@@ -1,8 +1,6 @@
 package com.zerir.di.data
 
-import javax.inject.Inject
-
-class AuthRepository @Inject constructor(
+class AuthRepository (
     private val authApi: AuthApiReference,
     private val userPreference: UserPreference,
 ) {

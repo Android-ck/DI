@@ -1,7 +1,17 @@
 package com.zerir.di
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.zerir.di.di.*
+import org.koin.android.ext.android.startKoin
 
-@HiltAndroidApp
-class MyApp : Application()
+class MyApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        startKoin(
+            androidContext = this@MyApp,
+            modules = listOf(appModule, repoModule, viewModelModule),
+        )
+    }
+
+}
